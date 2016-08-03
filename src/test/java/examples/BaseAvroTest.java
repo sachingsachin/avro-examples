@@ -25,6 +25,13 @@ import org.apache.avro.reflect.ReflectDatumWriter;
 /**
  * Common methods for serializing and deserializing.
  * Uses Generic, Reflect and JSON encoders/decoders.
+ *
+ * Note that several constructors like that of {@link ReflectDatumWriter},
+ * {@link ReflectDatumReader} etc. take {@link ReflectData} as an argument
+ * and in those cases, it is best to provide that argument and make sure
+ * that the {@code ReflectData} passed to them has all the conversions, allow-null
+ * etc. properties set otherwise reading and writing will not be in sync and
+ * cause problems.
  */
 public class BaseAvroTest {
 
@@ -90,7 +97,9 @@ public class BaseAvroTest {
   */
   public <T> List<T> reflectDatumRead (byte[] bytes, Class<T> clazz) throws IOException {
 
-    ReflectDatumReader<T> datumReader = new ReflectDatumReader<T> ();
+    ReflectData rdata = getReflectData();
+
+    ReflectDatumReader<T> datumReader = new ReflectDatumReader<T> (rdata);
     SeekableByteArrayInput avroInputStream = new SeekableByteArrayInput(bytes);
     DataFileReader<T> fileReader = new DataFileReader<T>(avroInputStream, datumReader);
 
