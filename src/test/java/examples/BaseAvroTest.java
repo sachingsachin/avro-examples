@@ -80,6 +80,7 @@ public class BaseAvroTest {
       records.add (readRecord);
       log("Read " + readRecord);
     }
+    fileReader.close();
     return records;
   }
 
@@ -93,12 +94,13 @@ public class BaseAvroTest {
     SeekableByteArrayInput avroInputStream = new SeekableByteArrayInput(bytes);
     DataFileReader<T> fileReader = new DataFileReader<T>(avroInputStream, datumReader);
 
-    Schema schema = fileReader.getSchema();
+    fileReader.getSchema();
     T record = null;
     List<T> records = new ArrayList<T> ();
     while (fileReader.hasNext()) {
       records.add (fileReader.next(record));
     }
+    fileReader.close();
     return records;
   }
 
