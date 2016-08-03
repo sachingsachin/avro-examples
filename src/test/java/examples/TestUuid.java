@@ -11,7 +11,7 @@ import org.apache.avro.generic.GenericRecord;
 import org.junit.Test;
 
 /**
- * Test avro for UUID support
+ * Test for UUID support
  */
 public class TestUuid extends BaseAvroTest {
 
