@@ -9,3 +9,14 @@ Other classes can just extend this class and focus on testing the features.
 ```bash
 mvn clean test
 ```
+
+# Failing tests as of now
+```
+  testInterfaces(examples.InterfaceTypesTest): java.lang.NoSuchMethodException: java.util.Map.<init>()
+  testParameterizedSchema(examples.ParameterizedTypesTest): Unknown type: P
+  testCircularRefs(examples.TestCircularRefs): java.lang.StackOverflowError
+```
+
+# Supported constructs
+1. UUID
+2. Non-String Map-Keys

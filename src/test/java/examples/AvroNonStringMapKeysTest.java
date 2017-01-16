@@ -13,7 +13,7 @@ import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.reflect.ReflectData;
 import org.junit.Test;
 
-public class AvroMapTest extends BaseAvroTest {
+public class AvroNonStringMapKeysTest extends BaseAvroTest {
 
   @Test
   public void testMapSchema () throws Exception {
@@ -33,7 +33,7 @@ public class AvroMapTest extends BaseAvroTest {
       List<GenericRecord> genRecords =
         (List<GenericRecord>) genericDatumRead(bytes);
       GenericRecord genRecord = genRecords.get(0);
-      assertNotNull ("Cannot read element 'b'", genRecord.get("b"));
+      assertNotNull ("Cannot read element 'map' field", genRecord.get("map"));
 
       log("\n\n----- Testing reflect datum read -----");
       List<MapEntity> appRecords =
