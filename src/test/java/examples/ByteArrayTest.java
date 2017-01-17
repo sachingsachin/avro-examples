@@ -18,6 +18,8 @@ public class ByteArrayTest extends BaseAvroTest {
 
       ByteArrayWrapper root = new ByteArrayWrapper();
       root.setBa("Hello".getBytes());
+      root.setIa(new int[]{1,2,3});
+      root.setBoa(new boolean[]{true, false, true, false, true});
 
       System.out.println(getReflectData().getSchema(root.getClass()));
 
@@ -54,12 +56,26 @@ public class ByteArrayTest extends BaseAvroTest {
 }
 
 class ByteArrayWrapper {
+    private int[] ia;
     private byte[] ba;
+    private boolean[] boa;
 
+    public int[] getIa() {
+        return ia;
+    }
+    public void setIa(int[] ia) {
+        this.ia = ia;
+    }
     public byte[] getBa() {
         return ba;
     }
     public void setBa(byte[] ba) {
         this.ba = ba;
+    }
+    public boolean[] getBoa() {
+        return boa;
+    }
+    public void setBoa(boolean[] boa) {
+        this.boa = boa;
     }
 }
