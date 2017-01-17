@@ -20,3 +20,4 @@ mvn clean test
 # Supported constructs
 1. UUID
 2. Non-String Map-Keys
+3. Byte-arrays
