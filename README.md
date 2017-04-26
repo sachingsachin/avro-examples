@@ -12,7 +12,8 @@ mvn clean test
 
 # Failing tests as of now
 ```
-  testInterfaces(examples.InterfaceTypesTest): java.lang.NoSuchMethodException: java.util.Map.<init>()
+  testMaps(examples.InterfaceTypesTest): java.lang.NoSuchMethodException: java.util.Map.<init>()
+  testSets(examples.InterfaceTypesTest): java.lang.NoSuchMethodException: java.util.Set.<init>()
   testParameterizedSchema(examples.ParameterizedTypesTest): Unknown type: P
   testCircularRefs(examples.TestCircularRefs): java.lang.StackOverflowError
 ```
