@@ -9,7 +9,7 @@
   <name>Examples for using Avro</name>
  
   <properties>
-    <avroVersion>1.8.1</avroVersion>
+    <avroVersion>1.8.2</avroVersion>
   </properties>
  
   <dependencies>
